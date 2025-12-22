@@ -246,7 +246,7 @@ class CreditCardPreprocessor:
             fraud_pct = (self.df_processed['is_fraud'].sum() / len(self.df_processed)) * 100
             print(f"Fraud Rate: {fraud_pct:.2f}%")
     
-    def save_data(self, filename='creditcard_clean.csv'):
+    def save_data(self, filename='creditcardfraud_preprocessing.csv'):
         """Save preprocessed data to CSV"""
         print("\n" + "="*70)
         print("SAVING CLEANED DATA")
