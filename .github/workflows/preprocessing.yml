@@ -32,7 +32,7 @@ jobs:
     
     - name: Upload processed data
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: processed-data
         path: preprocessing/creditcard_clean.csv
