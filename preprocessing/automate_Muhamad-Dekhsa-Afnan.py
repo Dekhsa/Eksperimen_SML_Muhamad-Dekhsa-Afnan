@@ -82,30 +82,6 @@ class CreditCardPreprocessor:
         print(f"  Rows removed: {removed_count}")
         print(f"  Shape after deduplication: {self.df_raw.shape}")
     
-    def handle_outliers(self):
-        """Detect and handle outliers using IQR method"""
-        print("\n" + "="*70)
-        print("STEP 4: HANDLING OUTLIERS (IQR METHOD)")
-        print("="*70)
-        
-        numeric_columns = self.df_raw.select_dtypes(include=[np.number]).columns.tolist()
-        # Remove transaction_id from scaling
-        numeric_columns = [col for col in numeric_columns if col != 'transaction_id']
-        
-        print(f"Processing numeric columns: {numeric_columns}")
-        
-        for col in numeric_columns:
-            Q1 = self.df_raw[col].quantile(0.25)
-            Q3 = self.df_raw[col].quantile(0.75)
-            IQR = Q3 - Q1
-            lower_bound = Q1 - 1.5 * IQR
-            upper_bound = Q3 + 1.5 * IQR
-            
-            # Cap outliers instead of removing
-            self.df_raw[col] = self.df_raw[col].clip(lower=lower_bound, upper=upper_bound)
-        
-        print(f"✓ Outliers capped for all numeric columns")
-    
     def feature_binning(self):
         """Create binned features from continuous variables"""
         print("\n" + "="*70)
@@ -270,7 +246,6 @@ class CreditCardPreprocessor:
             self.load_data()
             self.handle_missing_values()
             self.handle_duplicates()
-            self.handle_outliers()
             self.feature_binning()
             self.encode_categorical_features()
             self.normalize_features()
