@@ -1,6 +1,6 @@
 """
 Automated Data Preprocessing for Credit Card Fraud Detection
-Author: Muhamad Dekhsa & Afnan
+Author: Muhamad Dekhsa Afnan
 Purpose: Reads raw data and outputs clean preprocessed data
 """
 

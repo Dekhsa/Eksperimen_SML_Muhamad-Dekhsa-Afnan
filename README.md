@@ -85,8 +85,7 @@ Dapat dikonfigurasi melalui GitHub Actions:
 
 ## Authors
 
-- Muhamad Dekhsa
-- Afnan
+- Muhamad Dekhsa Afnan
 
 ## License
 

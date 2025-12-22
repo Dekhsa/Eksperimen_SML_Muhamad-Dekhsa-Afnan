@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: processed-data
-        path: preprocessing/creditcard_clean.csv
+        path: preprocessing/creditcardfraud_preprocessing.csv
